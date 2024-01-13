@@ -1,1 +1,14 @@
-<p>art-feature-product works!</p>
+<div  >
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px"  fxFlex="100%" class="parent">
+    <div *ngFor="let products of featureProducts; let i =index" fxLayout="row wrap " class="products">
+      <div *ngIf="i<6" class="card card{{i+1}}"  >
+          <img  height="75%" width="100%"  [src]="products?.image" alt="image">
+          <div style="text-align: center; padding: 7px; height: fit-content;">
+            <div class="name" style="font-family: 'Montserrat', sans-serif; ; font-weight: bold; font-size: 18px;">{{products?.name}} </div>
+            <div   class="price" style="font-family: 'Courgette', cursive; font-size: 18px;">{{products?.price}}</div>
+            <button style="background-color: black; color: white;" mat-button>Shop now</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

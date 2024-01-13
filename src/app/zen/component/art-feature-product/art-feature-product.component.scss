@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat&family=Roboto+Condensed:wght@800&display=swap');
+*{
+  box-sizing: border-box;
+}
+.parent{
+  position: relative;
+  height: 1200px;
+  overflow: hidden;
+  padding: 30px;
+  padding-right: 0;
+}
+
+.card{
+  width: 350px;
+  margin-top:20px ;
+  height: 400px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  border-radius:30px ;
+  & img{
+    border-top-right-radius:30px;
+    border-top-left-radius:30px;
+  }
+  // transform: scale(0.8);
+}
+
+.card1{
+  position: absolute;
+  background-color: red;
+  left: 60px;
+  top: 0;
+}
+.card2{
+  position: absolute;
+  background-color: blue;
+  left: 40%;
+  top: 19%;
+}
+.card3{
+  position: absolute;
+  background-color: violet;
+  right: -5%;
+  top: 0;
+}
+
+.card4{
+  position: absolute;
+  background-color: violet;
+  left: -5%;
+  bottom: 17%;
+}
+
+.card5{
+  position: absolute;
+  background-color: violet;
+  left: 30%;
+  bottom: 4%;
+}
+.card6{
+  position: absolute;
+  background-color: violet;
+  right: 5%;
+  bottom: 8%;
+}
+@media screen and (min-device-width: 950px) and (max-device-width: 1110px) {
+  .parent{
+    height: 1000px;
+  }
+  .card{
+    transform: scale(0.7);
+}
+
+}
+@media screen and (min-device-width: 409px) and (max-device-width: 949px) {
+  .parent{
+    height: 900px;
+  }
+  .card{
+    transform: scale(0.5);
+}
+}
+
+
