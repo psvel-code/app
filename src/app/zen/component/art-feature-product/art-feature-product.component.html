@@ -1,6 +1,21 @@
-<div  >
-  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px"  fxFlex="100%" class="parent">
-    <div *ngFor="let products of featureProducts; let i =index" fxLayout="row wrap " class="products">
+<div>
+<div *ngIf="featureProducts && featureProducts.length>0 ;else NoDataTemplate">
+  <div style="padding: 20px 0; text-align: center;" fxHide="true" fxShow.lt-sm="true">
+    <button style="background-color: black; color: white;" mat-button>Shop now</button>
+  </div>
+  <div *ngIf="featureProducts.length==1" style="height: 400px;" fxLayoutAlign="center center">
+    <div class="single-card"  >
+      <img  height="75%" width="100%"  [src]="featureProducts[0].image" alt="image">
+      <div style="text-align: center; padding: 7px; height: fit-content;">
+        <div class="name" style="font-family: 'Montserrat', sans-serif; ; font-weight: bold; font-size: 18px;">{{featureProducts[0].name}} </div>
+        <div   class="price" style="font-family: 'Courgette', cursive; font-size: 18px;">{{featureProducts[0].price}}</div>
+        <button style="background-color: black; color: white;" mat-button>Shop now</button>
+      </div>
+  </div>
+  </div>
+  <div>
+  <div *ngIf="featureProducts && featureProducts.length>0 &&featureProducts.length !=1 " fxLayout="row wrap" fxLayoutAlign="center center"  fxFlex="100%" class="parent">
+    <div *ngFor="let products of featureProducts; let i =index" fxLayout="row wrap" fxLayout.lt-sm="column" class="products">
       <div *ngIf="i<6" class="card card{{i+1}}"  >
           <img  height="75%" width="100%"  [src]="products?.image" alt="image">
           <div style="text-align: center; padding: 7px; height: fit-content;">
@@ -11,4 +26,16 @@
       </div>
     </div>
   </div>
+</div>
+<div fxHide.lt-sm="true" style="padding: 20px 0; text-align: center;" fxFlexOrder.lt-md="0">
+  <button style="background-color: black; color: white;" mat-button>Shop now</button>
+</div>
+
+</div>
+<ng-template #NoDataTemplate>
+  <div  fxLayout="column" fxLayoutAlign="center center">
+    <h1 class="storeadminInfo">Still, you have not yet added the featured products.</h1>
+    <h1 class="storeadminInfo">If you wish to see this template, please add featured products.</h1>
+  </div>
+</ng-template>
 </div>
