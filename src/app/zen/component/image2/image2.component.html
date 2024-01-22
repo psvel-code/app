@@ -1,0 +1,14 @@
+<!-- <p>image2 works!</p> -->
+<div fxLayout="row wrap" fxLayout.lt-sm="column"  fxLayoutAlign="space-evenly" style="background-color: beige;" fxFlex="100%" style="height: 1000px; overflow-x: hidden;">
+  <div *ngFor="let products of featuredProducts;let i=index" style="padding:20px" fxFlex="30%" fxFlex.lt-md="50%" fxFlex.lt-sm="">
+    <div fxLayout="column" class="card card{{i+1}}" fxLayoutAlign="center center">
+      <img height="70%" width="100%" [src]="products?.image" alt="image">
+      <div style="text-align: center; padding: 7px; height:30%" >
+        <div class="name" style="font-family: 'Montserrat', sans-serif; ; font-weight: bold; font-size: 18px;">
+          {{products?.name}} </div>
+        <div class="price" style="font-family: 'Courgette', cursive; font-size: 18px;">{{products?.price}}</div>
+        <button style="background-color: black; color: white;" mat-button>Shop now</button>
+      </div>
+    </div>
+  </div>
+</div>

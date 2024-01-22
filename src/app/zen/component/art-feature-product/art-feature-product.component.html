@@ -1,20 +1,23 @@
 <div>
-<div *ngIf="featureProducts && featureProducts.length>0 ;else NoDataTemplate">
+<div *ngIf="featureProducts && featureProducts.length>0 ;else NoDataTemplate" fxLayout="column">
   <div style="padding: 20px 0; text-align: center;" fxHide="true" fxShow.lt-sm="true">
     <button style="background-color: black; color: white;" mat-button>Shop now</button>
   </div>
-  <div *ngIf="featureProducts.length==1" style="height: 400px;" fxLayoutAlign="center center">
-    <div class="single-card"  >
-      <img  height="75%" width="100%"  [src]="featureProducts[0].image" alt="image">
+  <div *ngIf="featureProducts.length<3" style="height: auto;" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="5%"  fxFlex="100%" fxLayoutAlign="center start" fxLayoutAlign.lt-sm="center center">
+<div *ngFor="let products of featureProducts; let i =index"ngStyle.lt-md="padding:0 20px" fxLayout="column" fxFlex="30%" fxFlex.lt-md="50%" fxFlex.lt-sm="100%" fxLayoutAlign="center start" fxLayoutAlign.lt-sm="center center" >
+    <div  class="single-card card-{{i+1}}"  ngStyle.lt-md="height:300px"  >
+      <img  height="75%" width="100%"  [src]="products?.image" alt="image" ngStyle.lt-md="height:65%" >
       <div style="text-align: center; padding: 7px; height: fit-content;">
-        <div class="name" style="font-family: 'Montserrat', sans-serif; ; font-weight: bold; font-size: 18px;">{{featureProducts[0].name}} </div>
-        <div   class="price" style="font-family: 'Courgette', cursive; font-size: 18px;">{{featureProducts[0].price}}</div>
+        <div class="name" style="font-family: 'Montserrat', sans-serif; ; font-weight: bold; font-size: 18px;">{{products?.name}} </div>
+        <div   class="price" style="font-family: 'Courgette', cursive; font-size: 18px;">{{products?.price}}</div>
         <button style="background-color: black; color: white;" mat-button>Shop now</button>
       </div>
   </div>
+</div>
+</div>
   </div>
   <div>
-  <div *ngIf="featureProducts && featureProducts.length>0 &&featureProducts.length !=1 " fxLayout="row wrap" fxLayoutAlign="center center"  fxFlex="100%" class="parent">
+  <div *ngIf="featureProducts && featureProducts.length>2 &&featureProducts.length !=1 " fxLayout="row wrap" fxLayoutAlign="center center"  fxFlex="100%" class="parent">
     <div *ngFor="let products of featureProducts; let i =index" fxLayout="row wrap" fxLayout.lt-sm="column" class="products">
       <div *ngIf="i<6" class="card card{{i+1}}"  >
           <img  height="75%" width="100%"  [src]="products?.image" alt="image">
@@ -38,4 +41,3 @@
     <h1 class="storeadminInfo">If you wish to see this template, please add featured products.</h1>
   </div>
 </ng-template>
-</div>
